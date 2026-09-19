@@ -1,18 +1,17 @@
 import '@/global.css';
 
-import {PortalHost} from '@rn-primitives/portal';
-import {DarkTheme, DefaultTheme, ThemeProvider} from 'expo-router';
+import { PortalHost } from '@rn-primitives/portal';
+import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import {useColorScheme} from 'react-native';
+import { View } from 'react-native';
 
-void SplashScreen.preventAutoHideAsync();
+void SplashScreen.hideAsync();
 
-export default function TabLayout() {
-    const colorScheme = useColorScheme();
-
-    return (
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <PortalHost/>
-        </ThemeProvider>
-    );
+export default function RootLayout() {
+  return (
+    <>
+      <Stack screenOptions={{ headerShown: false }} />
+      <PortalHost />
+    </>
+  );
 }
